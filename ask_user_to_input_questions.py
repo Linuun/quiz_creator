@@ -23,4 +23,8 @@ with open("quiz.txt", "a") as file:
         file.write(f"=======================\n")
 # ask the user if they want to continue
         again = input("Do you want to add another question? (YES/NO): ").upper()
-# break the loop if not
+# break the loop if not and save it to the file
+        if again != "YES":
+            print("\n All done! You've built a fun and exciting quiz.")
+            print("\n All your questions have been saved in quiz.txt.")
+            break
