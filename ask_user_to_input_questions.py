@@ -11,6 +11,15 @@ with open("quiz.txt", "a") as file:
         answer_d = input("D.) ")
         correct_answer = input("Enter the correct answer: ").upper()
 # print "Invalid Answer" if correct answer is not in choice
+        if correct_answer not in ["A", "B", "C", "D"]:
+            print("Invalid Answer! Please enter A, B, C, or D")
 # use write function to write the inputs of the user in the file
+        file.write(f"Question: {question}\n")
+        file.write(f"A.) {answer_a}\n")
+        file.write(f"B.) {answer_b}\n")
+        file.write(f"C.) {answer_c}\n")
+        file.write(f"D.) {answer_d}\n")
+        file.write(f"The correct answer is: {correct_answer}\n")
+        file.write(f"=======================\n")
 # ask the user if they want to continue
 # break the loop if not
