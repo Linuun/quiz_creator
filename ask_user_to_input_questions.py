@@ -22,4 +22,5 @@ with open("quiz.txt", "a") as file:
         file.write(f"The correct answer is: {correct_answer}\n")
         file.write(f"=======================\n")
 # ask the user if they want to continue
+        again = input("Do you want to add another question? (YES/NO): ").upper()
 # break the loop if not
