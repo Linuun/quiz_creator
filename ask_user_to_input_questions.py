@@ -19,13 +19,14 @@ with open("quiz.txt", "a") as file:
         if correct_answer not in ["A", "B", "C", "D"]:
             print(f"{RED}Invalid Answer!🚫 Please enter A, B, C, or D {RESET}")
 # use write function to write the inputs of the user in the file
-        file.write(f"Question: {question}\n")
-        file.write(f"A.) {answer_a}\n")
-        file.write(f"B.) {answer_b}\n")
-        file.write(f"C.) {answer_c}\n")
-        file.write(f"D.) {answer_d}\n")
-        file.write(f"The correct answer is: {correct_answer}\n")
-        file.write(f"=======================\n")
+        else: 
+                file.write(f"Question: {question}\n")
+                file.write(f"A.) {answer_a}\n")
+                file.write(f"B.) {answer_b}\n")
+                file.write(f"C.) {answer_c}\n")
+                file.write(f"D.) {answer_d}\n")
+                file.write(f"The correct answer is: {correct_answer}\n")
+                file.write(f"=======================\n")
 # ask the user if they want to continue
         again = input("Do you want to add another question? (YES/NO): ").upper()
 # break the loop if not and save it to the file
