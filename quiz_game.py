@@ -5,6 +5,13 @@ from tkinter import filedialog
 import random
 import sys
 # ask the user to choose the quiz text file
+def choose_quiz_file():
+    root = tk.Tk()
+    root.withdraw()
+    return filedialog.askopenfilename(
+        title="Select a quiz file",
+        filetypes=[("Text Files", "*.txt")]
+    )
 # use with and open function to open the file in read mode
 # split the contents of the file using a separator
 # extract the question, possible answers, and correct answer
