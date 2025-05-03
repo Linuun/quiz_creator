@@ -48,6 +48,14 @@ def load_questions(file_name):
 
     return questions
 # create a text box with a background and padding 
+def draw_text_box(surface, text, font, color, x, y, width, padding=10, bg_color=(40, 40, 60), border_radius=12):
+    text_surface = font.render(text, True, color)
+    text_rect = text_surface.get_rect()
+    text_rect.topleft = (x + padding, y + padding)
+    box_rect = pygame.Rect(x, y, width, text_rect.height + 2 * padding)
+    pygame.draw.rect(surface, bg_color, box_rect, border_radius=border_radius)
+    surface.blit(text_surface, text_rect)
+    return box_rect.bottom
 # fill the background with some colors
 # initialize pygame and sets up the game
 # use while loop to run the game
