@@ -18,6 +18,23 @@ def load_questions(file_name):
         content = file.read().strip()
 # split the contents of the file using a separator
 # extract the question, possible answers, and correct answer
+    question_blocks = content.split('=======================')
+    questions = []
+
+    for block in question_blocks:
+        lines = block.strip().split('\n')
+        if len(lines) < 6:
+            continue
+
+        question_line = lines[0]
+        choices_lines = lines[1:5]
+        answer_line = lines[5]
+
+        if not question_line.startswith("Question:"):
+            continue
+
+        question = question_line[len("Question:"):].strip()
+        choices = [line[4:].strip() for line in choices_lines if len(line) > 3 and line[1:4] == '.) ']
 # convert answer letter to index
 # append (question, choices, correct_answer) to a list
 # return list of all valid questions
