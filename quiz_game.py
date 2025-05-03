@@ -36,6 +36,8 @@ def load_questions(file_name):
         question = question_line[len("Question:"):].strip()
         choices = [line[4:].strip() for line in choices_lines if len(line) > 3 and line[1:4] == '.) ']
 # convert answer letter to index
+        question = question_line[len("Question:"):].strip()
+        choices = [line[4:].strip() for line in choices_lines if len(line) > 3 and line[1:4] == '.) ']
 # append (question, choices, correct_answer) to a list
 # return list of all valid questions
 # create a text box with a background and padding 
