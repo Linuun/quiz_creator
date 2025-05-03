@@ -40,6 +40,13 @@ def load_questions(file_name):
         choices = [line[4:].strip() for line in choices_lines if len(line) > 3 and line[1:4] == '.) ']
 # append (question, choices, correct_answer) to a list
 # return list of all valid questions
+        answer_letter = answer_line.split(":")[-1].strip()
+        correct_index = ord(answer_letter.upper()) - ord('A')
+        if 0 <= correct_index < len(choices):
+            correct_answer = choices[correct_index]
+            questions.append((question, choices, correct_answer))
+
+    return questions
 # create a text box with a background and padding 
 # fill the background with some colors
 # initialize pygame and sets up the game
