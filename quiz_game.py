@@ -13,6 +13,9 @@ def choose_quiz_file():
         filetypes=[("Text Files", "*.txt")]
     )
 # use with and open function to open the file in read mode
+def load_questions(file_name):
+    with open(file_name, "r", encoding="utf-8") as file:
+        content = file.read().strip()
 # split the contents of the file using a separator
 # extract the question, possible answers, and correct answer
 # convert answer letter to index
