@@ -1,4 +1,9 @@
 # import libraries
+import pygame
+import tkinter as tk
+from tkinter import filedialog
+import random
+import sys
 # ask the user to choose the quiz text file
 # use with and open function to open the file in read mode
 # split the contents of the file using a separator
