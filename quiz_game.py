@@ -116,6 +116,10 @@ def run_quiz_game(questions):
                         if question_index >= len(questions):
                             game_over = True
 # handles answer input
+                    elif event.key == pygame.K_BACKSPACE:
+                        user_input = user_input[:-1]
+                    elif event.unicode.isalpha():
+                        user_input = event.unicode.upper()
 # shows the question and choices in styled text boxes
 # shows the score and the instructions to exit the game
 # updates the display and limits to 30 frames/second.
