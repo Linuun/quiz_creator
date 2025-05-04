@@ -57,6 +57,13 @@ def draw_text_box(surface, text, font, color, x, y, width, padding=10, bg_color=
     surface.blit(text_surface, text_rect)
     return box_rect.bottom
 # fill the background with some colors
+def draw_gradient(surface, color_top, color_bottom):
+    for y in range(surface.get_height()):
+        ratio = y / surface.get_height()
+        r = int(color_top[0] * (1 - ratio) + color_bottom[0] * ratio)
+        g = int(color_top[1] * (1 - ratio) + color_bottom[1] * ratio)
+        b = int(color_top[2] * (1 - ratio) + color_bottom[2] * ratio)
+        pygame.draw.line(surface, (r, g, b), (0, y), (surface.get_width(), y))
 # initialize pygame and sets up the game
 # use while loop to run the game
 # handle events like quitting the game
