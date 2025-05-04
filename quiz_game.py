@@ -121,6 +121,22 @@ def run_quiz_game(questions):
                     elif event.unicode.isalpha():
                         user_input = event.unicode.upper()
 # shows the question and choices in styled text boxes
+        margin_top = 50
+        margin_left = 60
+
+        if not game_over:
+            question = questions[question_index][0]
+            choices = questions[question_index][1]
+
+            y = draw_text_box(screen, f"Question {question_index + 1}", font, (255, 255, 255), margin_left, margin_top, 780)
+            y = draw_text_box(screen, question, font, (255, 255, 0), margin_left, y + 20, 780)
+
+            for i, choice in enumerate(choices):
+                y = draw_text_box(screen, f"{chr(65 + i)}) {choice}", small_font, (200, 200, 200), margin_left, y + 10, 780)
+
+            y += 30
+            draw_text_box(screen, f"Your Answer (A-D): {user_input}", small_font, (200, 200, 255), margin_left, y, 780)
+            draw_text_box(screen, feedback, small_font, feedback_color, margin_left, y + 50, 780)
 # shows the score and the instructions to exit the game
 # updates the display and limits to 30 frames/second.
 # run the entire program
