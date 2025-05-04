@@ -82,6 +82,8 @@ def run_quiz_game(questions):
     game_over = False
     running = True
 # use while loop to run the game
+    while running:
+        draw_gradient(screen, (15, 20, 45), (30, 60, 90))
 # handle events like quitting the game
 # checks answer and gives feedback
 # update the score and goes to the next question or ends the game
