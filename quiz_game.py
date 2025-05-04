@@ -90,6 +90,31 @@ def run_quiz_game(questions):
                 running = False
 # checks answer and gives feedback
 # update the score and goes to the next question or ends the game
+            if not game_over:
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RETURN:
+                        correct_answer = questions[question_index][2]
+                        selected_letter = user_input.strip().upper()
+
+                        try:
+                            selected_index = ord(selected_letter) - ord('A')
+                            selected_answer = questions[question_index][1][selected_index]
+                        except:
+                            selected_answer = ""
+
+                        if selected_answer == correct_answer:
+                            feedback = "✅ Correct!"
+                            feedback_color = (100, 255, 100)
+                            score += 1
+                        else:
+                            feedback = f"❌ Incorrect! Correct: {correct_answer}"
+                            feedback_color = (255, 100, 100)
+
+                        user_input = ""
+                        question_index += 1
+
+                        if question_index >= len(questions):
+                            game_over = True
 # handles answer input
 # shows the question and choices in styled text boxes
 # shows the score and the instructions to exit the game
