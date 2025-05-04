@@ -85,6 +85,9 @@ def run_quiz_game(questions):
     while running:
         draw_gradient(screen, (15, 20, 45), (30, 60, 90))
 # handle events like quitting the game
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 # checks answer and gives feedback
 # update the score and goes to the next question or ends the game
 # handles answer input
