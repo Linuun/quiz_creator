@@ -152,3 +152,15 @@ def run_quiz_game(questions):
 
     pygame.quit()
 # run the entire program
+if __name__ == "__main__":
+    file = choose_quiz_file()
+    if not file:
+        print("No file selected.")
+        sys.exit()
+
+    questions = load_questions(file)
+    if not questions:
+        print("No valid questions found in the file.")
+        sys.exit()
+
+    run_quiz_game(questions)
