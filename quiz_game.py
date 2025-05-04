@@ -138,5 +138,13 @@ def run_quiz_game(questions):
             draw_text_box(screen, f"Your Answer (A-D): {user_input}", small_font, (200, 200, 255), margin_left, y, 780)
             draw_text_box(screen, feedback, small_font, feedback_color, margin_left, y + 50, 780)
 # shows the score and the instructions to exit the game
+        else:
+            y = draw_text_box(screen, "🎉 Quiz Complete!", font, (255, 255, 255), margin_left, margin_top, 780)
+            y = draw_text_box(screen, f"Your score: {score} / {len(questions)}", font, (0, 255, 0), margin_left, y + 30, 780)
+            draw_text_box(screen, "Press ESC to exit.", small_font, (180, 180, 180), margin_left, y + 60, 780)
+
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_ESCAPE]:
+                running = False
 # updates the display and limits to 30 frames/second.
 # run the entire program
