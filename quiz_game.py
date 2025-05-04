@@ -147,4 +147,8 @@ def run_quiz_game(questions):
             if keys[pygame.K_ESCAPE]:
                 running = False
 # updates the display and limits to 30 frames/second.
+        pygame.display.flip()
+        clock.tick(30)
+
+    pygame.quit()
 # run the entire program
