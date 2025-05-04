@@ -65,6 +65,22 @@ def draw_gradient(surface, color_top, color_bottom):
         b = int(color_top[2] * (1 - ratio) + color_bottom[2] * ratio)
         pygame.draw.line(surface, (r, g, b), (0, y), (surface.get_width(), y))
 # initialize pygame and sets up the game
+def run_quiz_game(questions):
+    pygame.init()
+    screen = pygame.display.set_mode((900, 700))
+    pygame.display.set_caption("Quiz Master")
+    font = pygame.font.SysFont("arial", 28, bold=True)
+    small_font = pygame.font.SysFont("arial", 22)
+    clock = pygame.time.Clock()
+
+    random.shuffle(questions)
+    question_index = 0
+    user_input = ""
+    feedback = ""
+    feedback_color = (255, 255, 255)
+    score = 0
+    game_over = False
+    running = True
 # use while loop to run the game
 # handle events like quitting the game
 # checks answer and gives feedback
